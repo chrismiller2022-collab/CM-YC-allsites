@@ -30,6 +30,15 @@ window.HUB = {
       tags: ["sports", "coaching"],
     },
     {
+      name: "Home Hub",
+      description: "Home dashboard.",
+      status: "building",
+      url: "",
+      repo: "https://github.com/chrismiller2022-collab/HomeHub",
+      links: [],
+      tags: ["home"],
+    },
+    {
       name: "AI Job Search",
       description: "AI-assisted job hunting: finding, tracking, and applying to roles.",
       status: "building",

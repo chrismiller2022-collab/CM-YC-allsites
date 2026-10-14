@@ -1,0 +1,60 @@
+// The one file to edit. Add, remove, or reorder entries here and push;
+// Vercel redeploys the hub automatically.
+//
+// status: "live" | "building" | "planned"
+// url:    the deployed site (leave "" until it's on Vercel)
+// links:  any extra shortcuts (admin pages, dashboards, docs...)
+
+window.HUB = {
+  owner: "Chris Miller",
+  tagline: "Everything I'm building, in one place.",
+  github: "https://github.com/chrismiller2022-collab",
+
+  sites: [
+    {
+      name: "YC Power Ratings",
+      description: "Power ratings and rankings site, with an admin panel for managing data.",
+      status: "live",
+      url: "https://ycpr.vercel.app",
+      repo: "https://github.com/chrismiller2022-collab/YCPR",
+      links: [{ label: "Admin", href: "https://ycpr.vercel.app/admin" }],
+      tags: ["sports", "data"],
+    },
+    {
+      name: "LTP Sport Psych",
+      description: "Sport psychology site.",
+      status: "live",
+      url: "https://ltpsportpsych.vercel.app",
+      repo: "https://github.com/chrismiller2022-collab/ltpsportpsych",
+      links: [],
+      tags: ["sports", "coaching"],
+    },
+    {
+      name: "AI Job Search",
+      description: "AI-assisted job hunting: finding, tracking, and applying to roles.",
+      status: "building",
+      url: "",
+      repo: "https://github.com/chrismiller2022-collab/jobhunt",
+      links: [],
+      tags: ["ai", "career"],
+    },
+    {
+      name: "Workout Planner",
+      description: "Plan workouts and track training.",
+      status: "planned",
+      url: "",
+      repo: "https://github.com/chrismiller2022-collab/workouts",
+      links: [],
+      tags: ["fitness"],
+    },
+    {
+      name: "Financial Planner",
+      description: "Budgeting and long-term financial planning.",
+      status: "planned",
+      url: "",
+      repo: "https://github.com/chrismiller2022-collab/finplanner",
+      links: [],
+      tags: ["finance"],
+    },
+  ],
+};

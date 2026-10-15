@@ -65,5 +65,14 @@ window.HUB = {
       links: [{ label: "Cash Flow", href: "https://finplanner-six.vercel.app/cashflow" }],
       tags: ["finance"],
     },
+    {
+      name: "Citrus Tree Care Calendar",
+      description: "Seasonal care calendar for citrus trees: watering, feeding, and pruning.",
+      status: "live",
+      url: "https://bigcitrus.vercel.app",
+      repo: "https://github.com/chrismiller2022-collab/bigcitrus",
+      links: [],
+      tags: ["home", "garden"],
+    },
   ],
 };

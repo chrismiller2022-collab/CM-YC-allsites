@@ -10,7 +10,7 @@
     :root {
       --bg: #f6f7f9; --card: #ffffff; --text: #16181d; --muted: #646b78;
       --border: #e3e6eb; --accent: #3b5bdb; --chip: #eef1f6;
-      --live: #2f9e44; --building: #e8590c; --planned: #868e96; --down: #e03131;
+      --live: #2f9e44; --building: #e8590c; --planned: #868e96; --showcase: #9c36b5; --down: #e03131;
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -53,6 +53,7 @@
     .badge.live { color: var(--live); background: color-mix(in srgb, var(--live) 14%, transparent); }
     .badge.building { color: var(--building); background: color-mix(in srgb, var(--building) 14%, transparent); }
     .badge.planned { color: var(--planned); background: color-mix(in srgb, var(--planned) 16%, transparent); }
+    .badge.showcase { color: var(--showcase); background: color-mix(in srgb, var(--showcase) 14%, transparent); }
     .url { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
     .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--planned); flex: none; }
     .dot.up { background: var(--live); }
@@ -84,6 +85,7 @@
           <button data-f="live" aria-pressed="false">Live</button>
           <button data-f="building" aria-pressed="false">Building</button>
           <button data-f="planned" aria-pressed="false">Planned</button>
+          <button data-f="showcase" aria-pressed="false">Case Studies</button>
         </div>
       </div>
     </header>
@@ -95,7 +97,7 @@
   <script src="sites.js"></script>
   <script>
     const hub = window.HUB;
-    const LABEL = { live: "Live", building: "Building", planned: "Planned" };
+    const LABEL = { live: "Live", building: "Building", planned: "Planned", showcase: "Case Study" };
     const grid = document.getElementById("grid");
     let filter = "all";
 
@@ -107,9 +109,10 @@
     const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
     function card(s) {
-      const host = s.url ? new URL(s.url).host : "";
+      // Relative URLs (e.g. "/tv-score-bug/") are pages hosted in this repo.
+      const host = !s.url ? "" : /^https?:/.test(s.url) ? new URL(s.url).host : "Hosted on this site";
       const actions = [
-        s.url && `<a class="primary" href="${esc(s.url)}" target="_blank" rel="noopener">Open</a>`,
+        s.url && `<a class="primary" href="${esc(s.url)}" target="_blank" rel="noopener">${s.status === "showcase" ? "View" : "Open"}</a>`,
         ...(s.links || []).map((l) => `<a href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)}</a>`),
         s.repo && `<a href="${esc(s.repo)}" target="_blank" rel="noopener">Code</a>`,
       ].filter(Boolean).join("");

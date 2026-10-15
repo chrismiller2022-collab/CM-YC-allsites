@@ -1,8 +1,8 @@
 // The one file to edit. Add, remove, or reorder entries here and push;
 // Vercel redeploys the hub automatically.
 //
-// status: "live" | "building" | "planned"
-// url:    the deployed site (leave "" until it's on Vercel)
+// status: "live" | "building" | "planned" | "showcase" (case study / write-up)
+// url:    a full URL, or a path like "/tv-score-bug/" for pages hosted in this repo
 // links:  any extra shortcuts (admin pages, dashboards, docs...)
 
 window.HUB = {
@@ -19,6 +19,15 @@ window.HUB = {
       repo: "https://github.com/chrismiller2022-collab/YCPR",
       links: [{ label: "Admin", href: "https://ycpr.vercel.app/admin" }],
       tags: ["sports", "data"],
+    },
+    {
+      name: "TV Score Bug",
+      description: "A live betting and fantasy scoreboard drawn over any TV broadcast: React web overlay, Android TV app, and a phone remote.",
+      status: "showcase",
+      url: "/tv-score-bug/",
+      repo: "",
+      links: [],
+      tags: ["sports", "android tv", "react", "supabase"],
     },
     {
       name: "LTP Sport Psych",

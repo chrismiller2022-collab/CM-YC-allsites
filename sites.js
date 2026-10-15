@@ -50,8 +50,8 @@ window.HUB = {
     {
       name: "Workout Planner",
       description: "Plan workouts and track training.",
-      status: "planned",
-      url: "",
+      status: "building",
+      url: "https://workouts-ebon-xi.vercel.app",
       repo: "https://github.com/chrismiller2022-collab/workouts",
       links: [],
       tags: ["fitness"],
@@ -59,7 +59,7 @@ window.HUB = {
     {
       name: "Financial Planner",
       description: "Budgeting and long-term financial planning.",
-      status: "building",
+      status: "live",
       url: "https://finplanner-six.vercel.app",
       repo: "https://github.com/chrismiller2022-collab/finplanner",
       links: [{ label: "Cash Flow", href: "https://finplanner-six.vercel.app/cashflow" }],

@@ -67,11 +67,15 @@ window.HUB = {
     },
     {
       name: "Financial Planner",
-      description: "Budgeting and long-term financial planning.",
+      description: "Household budgeting and planning. Try the John & Jane demo, or run a 5-step setup that saves only in your own browser.",
       status: "live",
       url: "https://finplanner-six.vercel.app",
       repo: "https://github.com/chrismiller2022-collab/finplanner",
-      links: [{ label: "Cash Flow", href: "https://finplanner-six.vercel.app/cashflow" }],
+      links: [
+        { label: "Demo", href: "https://finplanner-six.vercel.app/demo" },
+        { label: "Start planner", href: "https://finplanner-six.vercel.app/app" },
+        { label: "Admin", href: "https://finplanner-six.vercel.app/admin" },
+      ],
       tags: ["finance"],
     },
     {

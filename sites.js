@@ -26,7 +26,7 @@ window.HUB = {
       status: "live",
       url: "https://ltpsportpsych.vercel.app",
       repo: "https://github.com/chrismiller2022-collab/ltpsportpsych",
-      links: [],
+      links: [{ label: "Admin", href: "https://ltpsportpsych.vercel.app/admin" }],
       tags: ["sports", "coaching"],
     },
     {

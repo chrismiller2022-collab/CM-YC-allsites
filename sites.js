@@ -59,10 +59,10 @@ window.HUB = {
     {
       name: "Financial Planner",
       description: "Budgeting and long-term financial planning.",
-      status: "planned",
-      url: "",
+      status: "building",
+      url: "https://finplanner-six.vercel.app",
       repo: "https://github.com/chrismiller2022-collab/finplanner",
-      links: [],
+      links: [{ label: "Cash Flow", href: "https://finplanner-six.vercel.app/cashflow" }],
       tags: ["finance"],
     },
   ],

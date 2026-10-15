@@ -3,118 +3,58 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Hub</title>
-  <meta name="robots" content="noindex" />
+  <title>Chris Miller · Projects</title>
+  <meta name="description" content="Web apps and tools designed and built by Chris Miller." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧭</text></svg>" />
+  <link rel="stylesheet" href="/styles.css" />
   <style>
-    :root {
-      --bg: #f6f7f9; --card: #ffffff; --text: #16181d; --muted: #646b78;
-      --border: #e3e6eb; --accent: #3b5bdb; --chip: #eef1f6;
-      --live: #2f9e44; --building: #e8590c; --planned: #868e96; --showcase: #9c36b5; --down: #e03131;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0f1115; --card: #171a21; --text: #e8eaee; --muted: #9aa1ad;
-        --border: #262a33; --accent: #7c95ff; --chip: #222631;
-      }
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; background: var(--bg); color: var(--text);
-      font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    }
-    main { max-width: 1040px; margin: 0 auto; padding: 40px 16px 64px; }
-    header { display: flex; flex-wrap: wrap; gap: 16px; align-items: end; justify-content: space-between; margin-bottom: 24px; }
-    h1 { margin: 0; font-size: 28px; letter-spacing: -0.02em; }
-    header p { margin: 4px 0 0; color: var(--muted); }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .controls { display: flex; gap: 8px; flex-wrap: wrap; }
-    input[type=search] {
-      padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px;
-      background: var(--card); color: var(--text); font: inherit; min-width: 200px;
-    }
-    .filters button {
-      padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px;
-      background: var(--card); color: var(--muted); font: inherit; cursor: pointer;
-    }
-    .filters button[aria-pressed=true] { color: var(--text); border-color: var(--accent); }
-
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
-    .card {
-      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-      padding: 18px; display: flex; flex-direction: column; gap: 10px;
-    }
-    .card-top { display: flex; justify-content: space-between; align-items: start; gap: 8px; }
-    .card h2 { margin: 0; font-size: 17px; }
-    .card p { margin: 0; color: var(--muted); flex: 1; }
-    .badge { font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
-    .badge.live { color: var(--live); background: color-mix(in srgb, var(--live) 14%, transparent); }
-    .badge.building { color: var(--building); background: color-mix(in srgb, var(--building) 14%, transparent); }
-    .badge.planned { color: var(--planned); background: color-mix(in srgb, var(--planned) 16%, transparent); }
-    .badge.showcase { color: var(--showcase); background: color-mix(in srgb, var(--showcase) 14%, transparent); }
-    .url { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--planned); flex: none; }
-    .dot.up { background: var(--live); }
-    .dot.down { background: var(--down); }
-    .tags { display: flex; gap: 6px; flex-wrap: wrap; }
-    .tag { font-size: 12px; background: var(--chip); color: var(--muted); padding: 1px 8px; border-radius: 6px; }
-    .actions { display: flex; gap: 8px; flex-wrap: wrap; }
-    .actions a {
-      font-size: 13px; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border);
-      color: var(--text);
-    }
-    .actions a.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-    .actions a:hover { text-decoration: none; border-color: var(--accent); }
-    .empty { color: var(--muted); text-align: center; padding: 40px 0; }
-    footer { margin-top: 32px; color: var(--muted); font-size: 13px; text-align: center; }
+    .hero { margin-bottom: 28px; }
+    .hero p { margin: 6px 0 0; color: var(--muted); font-size: 17px; }
+    .hero .links { margin-top: 10px; font-size: 14px; display: flex; gap: 14px; }
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .owner { color: var(--muted); opacity: .6; }
   </style>
 </head>
 <body>
   <main>
-    <header>
-      <div>
-        <h1 id="title">Project Hub</h1>
-        <p id="tagline"></p>
-      </div>
-      <div class="controls">
-        <input type="search" id="q" placeholder="Search…" aria-label="Search projects" />
-        <div class="filters" role="group" aria-label="Filter by status">
-          <button data-f="all" aria-pressed="true">All</button>
-          <button data-f="live" aria-pressed="false">Live</button>
-          <button data-f="building" aria-pressed="false">Building</button>
-          <button data-f="planned" aria-pressed="false">Planned</button>
-          <button data-f="showcase" aria-pressed="false">Case Studies</button>
-        </div>
-      </div>
+    <header class="hero">
+      <h1 id="title"></h1>
+      <p id="tagline"></p>
+      <div class="links"><a id="gh" target="_blank" rel="noopener">GitHub</a></div>
     </header>
 
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button class="btn" data-f="all" aria-pressed="true">All</button>
+      <button class="btn" data-f="apps" aria-pressed="false">Web apps</button>
+      <button class="btn" data-f="showcase" aria-pressed="false">Case studies</button>
+    </div>
+
     <section class="grid" id="grid"></section>
-    <footer id="footer"></footer>
+    <footer><a class="owner" href="/admin">Owner</a></footer>
   </main>
 
-  <script src="sites.js"></script>
+  <script src="/sites.js"></script>
   <script>
     const hub = window.HUB;
-    const LABEL = { live: "Live", building: "Building", planned: "Planned", showcase: "Case Study" };
-    const grid = document.getElementById("grid");
-    let filter = "all";
-
-    document.getElementById("title").textContent = hub.owner ? `${hub.owner} · Projects` : "Project Hub";
-    document.getElementById("tagline").textContent = hub.tagline || "";
-    document.getElementById("footer").innerHTML =
-      `${hub.sites.length} projects · <a href="${hub.github}" target="_blank" rel="noopener">GitHub</a>`;
-
+    const LABEL = { live: "Live", building: "In progress", planned: "Planned", showcase: "Case study" };
     const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    const ext = (href) => /^https?:/.test(href) ? ` target="_blank" rel="noopener"` : "";
+    const btn = (label, href, primary) => `<a${primary ? ' class="primary"' : ""} href="${esc(href)}"${ext(href)}>${esc(label)}</a>`;
+
+    // Public = not opted out, and has something a visitor can actually open.
+    const sites = hub.sites.filter((s) => s.public !== false && (s.url || s.demo || s.writeup));
+
+    document.getElementById("title").textContent = `${hub.owner} · Projects`;
+    document.getElementById("tagline").textContent = hub.tagline;
+    document.getElementById("gh").href = hub.github;
 
     function card(s) {
-      // Relative URLs (e.g. "/tv-score-bug/") are pages hosted in this repo.
-      const host = !s.url ? "" : /^https?:/.test(s.url) ? new URL(s.url).host : "Hosted on this site";
       const actions = [
-        s.url && `<a class="primary" href="${esc(s.url)}" target="_blank" rel="noopener">${s.status === "showcase" ? "View" : "Open"}</a>`,
-        ...(s.links || []).map((l) => `<a href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)}</a>`),
-        s.repo && `<a href="${esc(s.repo)}" target="_blank" rel="noopener">Code</a>`,
+        s.url && btn(s.status === "showcase" ? "Read" : "Visit site", s.url, true),
+        s.demo && btn("Demo", s.demo),
+        s.writeup && btn("Write-up", s.writeup),
+        ...(s.links || []).map((l) => btn(l.label, l.href)),
+        s.repo && !s.repoPrivate && btn("Code", s.repo),
       ].filter(Boolean).join("");
       return `
         <article class="card">
@@ -123,42 +63,21 @@
             <span class="badge ${s.status}">${LABEL[s.status] || s.status}</span>
           </div>
           <p>${esc(s.description || "")}</p>
-          ${host ? `<div class="url"><span class="dot" data-ping="${esc(s.url)}" title="Checking…"></span>${esc(host)}</div>` : `<div class="url">Not deployed yet</div>`}
           ${s.tags?.length ? `<div class="tags">${s.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>` : ""}
           <div class="actions">${actions}</div>
         </article>`;
     }
 
+    let filter = "all";
     function render() {
-      const q = document.getElementById("q").value.trim().toLowerCase();
-      const list = hub.sites.filter((s) =>
-        (filter === "all" || s.status === filter) &&
-        (!q || [s.name, s.description, ...(s.tags || [])].join(" ").toLowerCase().includes(q))
-      );
-      grid.innerHTML = list.length ? list.map(card).join("") : `<div class="empty">No matches.</div>`;
-      grid.querySelectorAll("[data-ping]").forEach(ping);
+      const list = sites.filter((s) =>
+        filter === "all" || (filter === "showcase" ? s.status === "showcase" : s.status !== "showcase"));
+      document.getElementById("grid").innerHTML = list.map(card).join("") || `<div class="empty">Nothing here yet.</div>`;
     }
-
-    // Reachability check: a no-cors request resolves if the site answers at all
-    // and rejects on network failure/timeout. It can't see status codes.
-    const pingCache = {};
-    function ping(dot) {
-      const url = dot.dataset.ping;
-      pingCache[url] ??= Promise.race([
-        fetch(url, { mode: "no-cors", cache: "no-store" }).then(() => true),
-        new Promise((r) => setTimeout(() => r(false), 8000)),
-      ]).catch(() => false);
-      pingCache[url].then((up) => {
-        dot.classList.add(up ? "up" : "down");
-        dot.title = up ? "Reachable" : "Not responding";
-      });
-    }
-
-    document.getElementById("q").addEventListener("input", render);
-    document.querySelectorAll(".filters button").forEach((b) =>
+    document.querySelectorAll(".filters .btn").forEach((b) =>
       b.addEventListener("click", () => {
         filter = b.dataset.f;
-        document.querySelectorAll(".filters button").forEach((x) => x.setAttribute("aria-pressed", x === b));
+        document.querySelectorAll(".filters .btn").forEach((x) => x.setAttribute("aria-pressed", x === b));
         render();
       })
     );

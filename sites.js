@@ -1,23 +1,26 @@
-// The one file to edit. Add, remove, or reorder entries here and push;
-// Vercel redeploys the hub automatically.
+// Public project list. This file is visible to anyone, so keep admin URLs out
+// of it; those go in admin/private.js, which sits behind the admin password.
 //
-// status: "live" | "building" | "planned" | "showcase" (case study / write-up)
-// url:    a full URL, or a path like "/tv-score-bug/" for pages hosted in this repo
-// links:  any extra shortcuts (admin pages, dashboards, docs...)
+// status:      "live" | "building" | "planned" | "showcase" (case study / write-up)
+// url:         the main site: a full URL, or a path like "/tv-score-bug/" for pages hosted here
+// public:      false hides the project from the public portfolio (it still shows in /admin)
+// demo:        a public demo of the app or its admin side (shown as "Demo")
+// writeup:     a case study / write-up page (shown as "Write-up")
+// links:       other public shortcuts
+// repo:        GitHub repo; set repoPrivate: true to hide it on the public page
 
 window.HUB = {
   owner: "Chris Miller",
-  tagline: "Everything I'm building, in one place.",
+  tagline: "Web apps and tools I've designed and built.",
   github: "https://github.com/chrismiller2022-collab",
 
   sites: [
     {
       name: "YC Power Ratings",
-      description: "Power ratings and rankings site, with an admin panel for managing data.",
+      description: "College football power ratings with my own projected spreads and totals, locked before kickoff, plus a graded log of every bet and pool pick.",
       status: "live",
       url: "https://ycpr.vercel.app",
       repo: "https://github.com/chrismiller2022-collab/YCPR",
-      links: [{ label: "Admin", href: "https://ycpr.vercel.app/admin" }],
       tags: ["sports", "data"],
     },
     {
@@ -25,8 +28,6 @@ window.HUB = {
       description: "A live betting and fantasy scoreboard drawn over any TV broadcast: React web overlay, Android TV app, and a phone remote.",
       status: "showcase",
       url: "/tv-score-bug/",
-      repo: "",
-      links: [],
       tags: ["sports", "android tv", "react", "supabase"],
     },
     {
@@ -35,26 +36,18 @@ window.HUB = {
       status: "live",
       url: "https://ltpsportpsych.vercel.app",
       repo: "https://github.com/chrismiller2022-collab/ltpsportpsych",
-      links: [{ label: "Admin", href: "https://ltpsportpsych.vercel.app/admin" }],
+      repoPrivate: true,
       tags: ["sports", "coaching"],
     },
     {
-      name: "Home Hub",
-      description: "Home dashboard.",
-      status: "building",
-      url: "",
-      repo: "https://github.com/chrismiller2022-collab/HomeHub",
-      links: [],
-      tags: ["home"],
-    },
-    {
-      name: "AI Job Search",
-      description: "AI-assisted job hunting: finding, tracking, and applying to roles.",
-      status: "building",
-      url: "",
-      repo: "https://github.com/chrismiller2022-collab/jobhunt",
-      links: [],
-      tags: ["ai", "career"],
+      name: "Financial Planner",
+      description: "Household budgeting and planning. Try the John & Jane demo, or run a 5-step setup that saves only in your own browser.",
+      status: "live",
+      url: "https://finplanner-six.vercel.app",
+      demo: "https://finplanner-six.vercel.app/demo",
+      repo: "https://github.com/chrismiller2022-collab/finplanner",
+      links: [{ label: "Start planner", href: "https://finplanner-six.vercel.app/app" }],
+      tags: ["finance"],
     },
     {
       name: "Workout Planner",
@@ -62,21 +55,7 @@ window.HUB = {
       status: "building",
       url: "https://workouts-ebon-xi.vercel.app",
       repo: "https://github.com/chrismiller2022-collab/workouts",
-      links: [],
       tags: ["fitness"],
-    },
-    {
-      name: "Financial Planner",
-      description: "Household budgeting and planning. Try the John & Jane demo, or run a 5-step setup that saves only in your own browser.",
-      status: "live",
-      url: "https://finplanner-six.vercel.app",
-      repo: "https://github.com/chrismiller2022-collab/finplanner",
-      links: [
-        { label: "Demo", href: "https://finplanner-six.vercel.app/demo" },
-        { label: "Start planner", href: "https://finplanner-six.vercel.app/app" },
-        { label: "Admin", href: "https://finplanner-six.vercel.app/admin" },
-      ],
-      tags: ["finance"],
     },
     {
       name: "Citrus Tree Care Calendar",
@@ -84,8 +63,24 @@ window.HUB = {
       status: "live",
       url: "https://bigcitrus.vercel.app",
       repo: "https://github.com/chrismiller2022-collab/bigcitrus",
-      links: [],
       tags: ["home", "garden"],
+    },
+    {
+      name: "Home Hub",
+      description: "Home dashboard.",
+      status: "building",
+      public: false,
+      repo: "https://github.com/chrismiller2022-collab/HomeHub",
+      tags: ["home"],
+    },
+    {
+      name: "AI Job Search",
+      description: "AI-assisted job hunting: finding, tracking, and applying to roles.",
+      status: "building",
+      public: false,
+      repo: "https://github.com/chrismiller2022-collab/jobhunt",
+      repoPrivate: true,
+      tags: ["ai", "career"],
     },
   ],
 };
